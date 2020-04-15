@@ -50,6 +50,7 @@ namespace Pokemon.Classes
 			set { speed_Base = value; }
 		}
 
+		// Default construcotr
 		public Poke()
 		{
 			HP_Base = 10;
@@ -59,6 +60,8 @@ namespace Pokemon.Classes
 			SpecialDefence_Base = 10;
 			Speed_Base = 10;
 		}
+
+		// Overloaded Construcotr
 		public Poke(int hp, int attack, int defence, int spAttack, int spDefence, int speed)
 		{
 			hp = HP_Base;
@@ -182,8 +185,39 @@ namespace Pokemon.Classes
 			Console.WriteLine();
 			Console.WriteLine("Total: " + Total);
 			Console.WriteLine("Average: " + Average);
+		}
+		// Pokemon-generator
+		private static Random r = new Random();
+		public static Poke GeneratorPokemon()
+		{
+			Poke temp = new Poke()
+			{
+				HP_Base = r.Next(1, 101),
+				Attack_Base = r.Next(1, 101),
+				Defence_Base = r.Next(1, 101),
+				SpecialAttack_Base = r.Next(1, 101),
+				SpecialDefence_Base = r.Next(1, 101),
+				Speed_Base = r.Next(1, 101),
+			};
+			return temp;
+		}
 
-			
+		// Pokemon-batlle
+		public static int Battle(Poke pikachu, Poke zalm)
+		{
+			if (pikachu == null && zalm == null)
+				return 0;
+			if (pikachu == null)
+				return 2;
+			if (zalm == null)
+				return 1;
+
+			if (pikachu.Average > zalm.Average)
+				return 1;
+			else if (pikachu.Average < zalm.Average)
+				return 2;
+
+			return 0;
 		}
 	}
 }
