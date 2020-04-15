@@ -49,6 +49,26 @@ namespace Pokemon.Classes
 			get { return speed_Base; }
 			set { speed_Base = value; }
 		}
+
+		public Poke()
+		{
+			HP_Base = 10;
+			Attack_Base = 10;
+			Defence_Base = 10;
+			SpecialAttack_Base = 10;
+			SpecialDefence_Base = 10;
+			Speed_Base = 10;
+		}
+		public Poke(int hp, int attack, int defence, int spAttack, int spDefence, int speed)
+		{
+			hp = HP_Base;
+			attack = Attack_Base;
+			defence = Defence_Base;
+			spAttack = SpecialAttack_Base;
+			spDefence = SpecialDefence_Base;
+			speed = Speed_Base;
+		}
+
 		// Extra stats
 
 		public string Naam { get; set; }
